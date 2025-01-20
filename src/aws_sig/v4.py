@@ -21,7 +21,7 @@ DATE_FORMAT = "%Y%m%d"
 LOGGER = logging.getLogger(__name__)
 
 
-class SigV4Signer(AuthBase):
+class SigV4(AuthBase):
     """SigV4 based authorizer"""
 
     _credentials: Credentials
@@ -34,10 +34,10 @@ class SigV4Signer(AuthBase):
         self,
         aws_access_key: str,
         aws_secret_key: str,
+        region: str,
+        service: str,
         aws_session_token: str | None = None,
-        service: str = "execute-api",
-        region: str = "us-east-1"
-    ) -> None:
+    ):
 
         self._credentials = Credentials(
             aws_access_key,
