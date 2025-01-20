@@ -2,6 +2,7 @@
 
 
 class TypeErrorOL(TypeError):
+    """TypeError exception with premade error message"""
 
     def __init__(self, expected: type, actual: type):
         super().__init__(
