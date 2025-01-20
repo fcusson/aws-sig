@@ -4,7 +4,7 @@ import unittest as test
 import datetime as dt
 
 from aws_sig.v4 import (
-    SigV4Signer,
+    SigV4,
     TIMESTAMP_FORMAT
 )
 
@@ -19,7 +19,7 @@ class TestAwsCases(test.TestCase):
         service = "s3"
         region = "us-east-1"
 
-        self.signer = SigV4Signer(
+        self.signer = SigV4(
             aws_access_key=access_key,
             aws_secret_key=secret_key,
             service=service,
@@ -166,7 +166,7 @@ class TestInvalidInput(test.TestCase):
         service = "s3"
         region = "us-east-1"
 
-        self.signer = SigV4Signer(
+        self.signer = SigV4(
             aws_access_key=access_key,
             aws_secret_key=secret_key,
             service=service,

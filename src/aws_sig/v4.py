@@ -169,16 +169,16 @@ class SigV4(AuthBase):
             raise TypeError from exc
 
         # calculate signature
-        date_key = SigV4Signer.sign(
+        date_key = self.sign(
             f"AWS4{self._credentials.secret_key}",
             datestamp
         )
 
-        region_key = SigV4Signer.sign(date_key, self._region)
-        service_key = SigV4Signer.sign(region_key, self._service)
-        signing_key = SigV4Signer.sign(service_key, "aws4_request")
+        region_key = self.sign(date_key, self._region)
+        service_key = self.sign(region_key, self._service)
+        signing_key = self.sign(service_key, "aws4_request")
 
-        return SigV4Signer.sign(signing_key, string_to_sign, True)
+        return self.sign(signing_key, string_to_sign, True)
 
     @staticmethod
     def sign(
