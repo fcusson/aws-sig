@@ -138,7 +138,7 @@ class SigV4(AuthBase):
 
         # raise if signature not a string
         if not isinstance(signature, str):
-            raise TypeError(f"Expected 'str', received '{type(signature)}'")
+            raise TypeError(str, type(signature))
 
         # get date stamp and signed headers for final authorization
         # header
@@ -251,10 +251,11 @@ class SigV4(AuthBase):
         method: str,
         host: str,
         ressource: str,
+        *,
         query: dict[str, str],
         headers: dict[str, str],
+        time: dt.datetime,
         payload: str = None,
-        time=dt.datetime,
     ) -> str:
         """calculates the canonical request for AWS auth
 
@@ -301,7 +302,7 @@ class SigV4(AuthBase):
         if isinstance(host, str):
             canonical_headers["host"] = host
         else:
-            raise TypeError(f"Expected 'str', received '{type(host)}'")
+            raise TypeError(str, type(host))
 
         # make sure time object is a datetime object
         try:
