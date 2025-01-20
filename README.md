@@ -1,6 +1,7 @@
 # aws-sig
 
 [![PyPi version](https://badge.fury.io/py/aws-signature.svg)](https://pypi.org/project/aws-signature/)
+[![Code Coverage](https://img.shields.io/codecov/c/github/fcusson/aws-sig)](https://app.codecov.io/gh/fcusson/aws-sig)
 
 A Python Library to Authenticate Request to the AWS API using the AWS Signatures.
 
