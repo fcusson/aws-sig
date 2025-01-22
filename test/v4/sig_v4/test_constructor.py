@@ -2,19 +2,19 @@
 
 import unittest as test
 
-from aws_sig.v4 import SigV4Signer
+from aws_sig.v4 import SigV4
 
 
 class TestDataRetention(test.TestCase):
 
     def setUp(self):
 
-        self.signer = SigV4Signer(
+        self.signer = SigV4(
             "access",
             "secret",
-            "token",
-            "service",
             "region",
+            "service",
+            "token",
         )
 
     def test_credentials_value_is_retained(self):

@@ -1,0 +1,3 @@
+coverage
+pylint
+build==1.2.2.post1

@@ -3,13 +3,13 @@
 import unittest as test
 from unittest.mock import MagicMock
 
-from aws_sig.v4 import SigV4Signer
+from aws_sig.v4 import SigV4
 
 
 class TestAuthenticationCall(test.TestCase):
 
     def setUp(self):
-        self.signer = SigV4Signer("access", "secret", "token")
+        self.signer = SigV4("access", "secret", "us-east-1", "s3", "token")
 
     def test_basic_request(self):
 

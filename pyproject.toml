@@ -1,5 +1,5 @@
 [project]
-name = "aws-sig"
+name = "aws-signature"
 version = "0.1.0"
 description = "A Python Library to Authenticate Request to the AWS API using the AWS Signatures"
 readme = "README.md"
